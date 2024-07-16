@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Nickel and Diming Your GAN: A Dual-Method
+        Approach to Enhancing GAN Efficiency via
+        Knowledge Distillation">
+  <meta name="keywords" content="Nickel-and-dime-your-gan, efficient gan">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nickel and Diming Your GAN: A Dual-Method
+    Approach to Enhancing GAN Efficiency via
+    Knowledge Distillation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Nickel and Diming Your GAN: A Dual-Method
+            Approach to Enhancing GAN Efficiency via
+            Knowledge Distillation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Sangyeop Yeo,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=ko&user=-_a_pDYAAAAJ">Yoojin Jang</a>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.kr/citations?user=7NBlQw4AAAAJ&hl=ko">Jaejun Yoo</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Ulsan National Institute of Science and Technology (UNIST)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2405.11614"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2405.11614"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. 
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. 
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span> 
+                  <span>Data</span>-->
+                  </a> 
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        🎉<b>Congratulations!</b> <b>NICKEL & DiME</b> is accepted in <b>ECCV 2024</b>🎉
+      </h2>
+      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/overview.jpg">
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          
+          <p>
+            In this paper, we address the challenge of compressing 
+            generative adversarial networks (GANs) for deployment in resource-constrained 
+            environments by proposing two novel methodologies: <b>Distribution Matching for 
+            Efficient compression (DiME)</b> and <b>Network Interactive Compression via Knowledge 
+            Exchange and Learning (NICKEL)</b>. </p>
+            <p>DiME employs foundation models as embedding 
+            kernels for efficient distribution matching, leveraging maximum mean discrepancy 
+            to facilitate effective knowledge distillation. Simultaneously, NICKEL employs 
+            an interactive compression method that enhances the communication between 
+            the student generator and discriminator, achieving a balanced and stable 
+            compression process.</p>
+            <p>Our comprehensive evaluation on the StyleGAN2 architecture 
+            with the FFHQ dataset shows the effectiveness of our approach, with <b>NICKEL & DiME</b>
+             achieving FID scores of 10.45 and 15.93 at compression rates of 95.73% and 
+             98.92%, respectively. Remarkably, our methods sustain generative quality 
+             even at an extreme compression rate of 99.69%, surpassing the previous 
+             state-of-the-art performance by a large margin. These findings not only 
+             demonstrate our methodologies' capacity to significantly lower GANs' 
+             computational demands but also pave the way for deploying high-quality 
+             GAN models in settings with limited resources. 
+             Our code will be released soon.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
+    <section class="section" id="Experimental">
+<div class="container is-max-desktop box_margin">
+    <div class="columns is-centered has-text-centered ">
+      <div class="column is-four-fifths ">
+        <h2 class="title is-3 ">Experimental Results</h2>
+        
+            <div class="content has-text-justified" >
+              <h3 class="title is-4 has-text-justified">Comparison of stability of NICKEL-DIME and state-of-the-art compression methods</h3>
+              <div class="figure_container">
+                <div class="column_figure left">
+                  <img src="./static/images/disequilibrium.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(a) Logits of D on ITGC</p>
+                </div>
+                <div class="column_figure right">
+                  <img src="./static/images/equilibrium.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(b) Logits of D on ours</p>
+                </div>
+                <div class="column_figure right">
+                  <img src="./static/images/stability.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(c) Convergence of FID</p>
+                </div>
+            </div>
+              <p>In this figure, (a) indicates the logits of the discriminator for the pruned generator 
+              on ITGC. The green solid line represents the ideal equilibrium state. 
+              When the compression rate is 98.92% <span class="highlight-blue">(blue dash line)</span>, 
+              it shows a more severe imbalance state compared to when the compression rate 
+              is 90.73% <span class="highlight-red">(red dash line)</span>. (b) indicates the logits of the discriminator 
+              for the pruned generator on <b>NICKEL & DiME</b>. Our method mitigates 
+              the imbalance between the discriminator and the pruned generator. 
+              (c) indicates the FID convergence plot when the compression rate is 98.92%. 
+              <b>NICKEL & DiME</b> converges the most stably.</p>
+          </div>
+                
+          </div>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-4 has-text-justified">Visualization of images generated by compressed StyleGAN2 on FFHQ and LSUN-CAT</h3>
+            <div class="content has-text-justified" >
+
+            <!-- Figures -->
+              <div class="figure_container">
+                <div class="column_figure left">
+                  <img src="./static/images/ffhq-70.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(a) Compression rate - 90.73%</p>
+                </div>
+                <div class="column_figure right">
+                  <img src="./static/images/lsun-cat-70.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(b) Compression rate - 90.73%</p>
+                </div>
+              </div>
+              <div class="figure_container">
+                <div class="column_figure left">
+                  <img src="./static/images/ffhq-90.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(c) Compression rate - 98.92%</p>
+                </div>
+                <div class="column_figure right">
+                  <img src="./static/images/ffhq-95.png"
+                  class="interpolation-image"
+                  alt="Simultaneous mode dropping"/>
+                    <p>(d) Compression rate - 99.69%</p>
+                </div>
+              </div>
+              <!-- Figures -->
+          </div>
+         
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+
+    
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yeo2024nickel,
+      title={Nickel and Diming Your GAN: A Dual-Method Approach to Enhancing GAN Efficiency via Knowledge Distillation},
+      author={Yeo, Sangyeop and Jang, Yoojin and Yoo, Jaejun},
+      journal={arXiv preprint arXiv:2405.11614},
+      year={2024}
+    }
+}</code></pre>
+  </div>
+</section>
+
+<section class="section" id="Ack">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgments</h2>
+    This work was supported by the National Research Foundation of Korea (NRF) grant funded by the Korea government (MSIT) (No.2022R1C1C1008496), Institute of Information \& communications Technology Planning \& Evaluation (IITP) grant funded by the Korea government (MSIT) (No.RS-2020-II201336, Artificial Intelligence graduate school support (UNIST), No.RS-2021-II212068, Artificial Intelligence Innovation Hub, RS-2022-II220959, (Part 2) Few-Shot Learning of Causal Inference in Vision and Language for Decision Making, RS-2022-II220264, Comprehensive Video Understanding and Generation with Knowledge-based Deep Logic Neural Network).
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered is-centered">
+      <p>Lab. of Advanced Imaging Tech</p>
+      
+      <a href="https://sites.google.com/view/jaejunyoo"><img
+        src="./static/images/logo_lait.png" width="50px" class="darken-image"></a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The website source code is from the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
